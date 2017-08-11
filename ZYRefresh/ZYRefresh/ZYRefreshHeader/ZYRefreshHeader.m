@@ -38,12 +38,14 @@
 
 - (void)scrollViewContentOffsetDidChange:(NSDictionary *)change {
     
+    //刷新临界点
     CGFloat critical_point = -64;
     
     if (self.state == ZYRefreshStateRefreshing) {
         return;
     }
     
+    //区分拖拽和非拖拽状态
     if (self.scrollView.isDragging) {
         if (self.state == ZYRefreshStateIdle && self.scrollView.contentOffset.x < critical_point) {
             self.state = ZYRefreshStatePulling;
@@ -58,35 +60,30 @@
 }
 
 - (void)setState:(ZYRefreshState)state {
+    
     [super setState:state];
     
+    //根据状态改变控件样式和父视图contentInset
     switch (state) {
             
-            
-            
         case ZYRefreshStateIdle: {
-            
-            
             [UIView animateWithDuration:0.25 animations:^{
                 self.scrollView.contentInset = UIEdgeInsetsZero;
             }];
-            
             self.label.text = @"右拉刷新...";
             break;
         }
             
-        case ZYRefreshStatePulling:
-            
+        case ZYRefreshStatePulling: {
             self.label.text = @"松开刷新...";
             break;
+        }
             
         case ZYRefreshStateRefreshing: {
-            
             [UIView animateWithDuration:0.25 animations:^{
                 self.scrollView.contentInset = UIEdgeInsetsMake(0, 64, 0, 0);
                 [self.scrollView setContentOffset:CGPointMake(-64, 0)];
             }];
-            
             self.label.text = @"正在刷新...";
             break;
         }

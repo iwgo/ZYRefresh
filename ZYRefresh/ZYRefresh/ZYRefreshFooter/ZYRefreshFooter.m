@@ -62,12 +62,10 @@
     }
 }
 
+//计算刷新临界值
 - (CGFloat)critical_point {
-    
     CGFloat w = self.scrollView.frame.size.width - 64 - self.spanInset;
-    
     CGFloat deltaH = self.scrollView.contentSize.width - w;
-    
     if (deltaH > 0) {
         return deltaH - self.scrollViewOriginalInset.top;
     } else {
@@ -90,9 +88,10 @@
     
     [super setState:state];
     
+    //根据状态改变控件样式和父视图contentInset
     switch (state) {
-        case ZYRefreshStateIdle: {
             
+        case ZYRefreshStateIdle: {
             [UIView animateWithDuration:0.25 animations:^{
                 self.scrollView.contentInset = self.scrollViewOriginalInset;
             }];
@@ -100,26 +99,22 @@
             break;
         }
             
-        case ZYRefreshStatePulling:
-            
+        case ZYRefreshStatePulling: {
             self.label.text = @"松开刷新...";
             break;
+        }
             
         case ZYRefreshStateRefreshing: {
-            
-            
             if (self.islessThanScrollViewWidth) {
                 CGFloat w = self.scrollView.frame.size.width - self.scrollView.contentSize.width + 64;
                 [UIView animateWithDuration:0.25 animations:^{
                     self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, w);
                 }];
-                
             }else {
                 [UIView animateWithDuration:0.25 animations:^{
                     self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 64 + self.spanInset);
                 }];
             }
-            
             self.label.text = @"正在刷新...";
             break;
         }
