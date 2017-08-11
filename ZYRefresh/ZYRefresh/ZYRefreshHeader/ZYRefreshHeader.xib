@@ -12,18 +12,18 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="Mfi-Wn-MUk" customClass="ZYRefreshHeader">
-            <rect key="frame" x="0.0" y="0.0" width="64" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="64" height="192"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1EC-fP-KXv">
-                    <rect key="frame" x="11" y="200" width="42" height="186"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1EC-fP-KXv">
+                    <rect key="frame" x="10" y="86" width="44" height="20.5"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ue3-in-oCE">
-                    <rect key="frame" x="22" y="161" width="20" height="20"/>
+                    <rect key="frame" x="22" y="56" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="1gC-V6-I9H"/>
                         <constraint firstAttribute="width" constant="20" id="IBp-vz-w23"/>
@@ -32,13 +32,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="1EC-fP-KXv" firstAttribute="top" secondItem="Ue3-in-oCE" secondAttribute="bottom" constant="10" id="347-di-Ul9"/>
                 <constraint firstItem="Ue3-in-oCE" firstAttribute="leading" secondItem="Mfi-Wn-MUk" secondAttribute="leading" constant="22" id="5Tp-4G-D6O"/>
                 <constraint firstAttribute="trailing" secondItem="Ue3-in-oCE" secondAttribute="trailing" constant="22" id="BJ8-xg-02p"/>
-                <constraint firstAttribute="bottom" secondItem="1EC-fP-KXv" secondAttribute="bottom" constant="281" id="FNU-er-VSq"/>
-                <constraint firstItem="1EC-fP-KXv" firstAttribute="top" secondItem="Ue3-in-oCE" secondAttribute="bottom" constant="19" id="KJN-nv-f2x"/>
-                <constraint firstAttribute="trailing" secondItem="1EC-fP-KXv" secondAttribute="trailing" constant="11" id="bpf-xc-qtE"/>
-                <constraint firstItem="1EC-fP-KXv" firstAttribute="top" secondItem="Mfi-Wn-MUk" secondAttribute="top" constant="200" id="mMA-QF-ODj"/>
-                <constraint firstItem="1EC-fP-KXv" firstAttribute="leading" secondItem="Mfi-Wn-MUk" secondAttribute="leading" constant="11" id="nqS-JJ-w5k"/>
+                <constraint firstItem="1EC-fP-KXv" firstAttribute="centerX" secondItem="Mfi-Wn-MUk" secondAttribute="centerX" id="CaC-gk-h8b"/>
+                <constraint firstItem="1EC-fP-KXv" firstAttribute="leading" secondItem="Mfi-Wn-MUk" secondAttribute="leading" constant="10" id="Lta-fw-AeD"/>
+                <constraint firstItem="1EC-fP-KXv" firstAttribute="centerY" secondItem="Mfi-Wn-MUk" secondAttribute="centerY" id="aVW-L6-lCt"/>
+                <constraint firstAttribute="trailing" secondItem="1EC-fP-KXv" secondAttribute="trailing" constant="10" id="xj5-1J-zug"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -46,7 +46,7 @@
                 <outlet property="activityIndicatorView" destination="Ue3-in-oCE" id="rfD-RQ-yAu"/>
                 <outlet property="m_label" destination="1EC-fP-KXv" id="J9A-Nk-eoB"/>
             </connections>
-            <point key="canvasLocation" x="-4" y="-54.5"/>
+            <point key="canvasLocation" x="-4" y="13"/>
         </view>
     </objects>
 </document>
