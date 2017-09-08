@@ -13,8 +13,8 @@
 
 @implementation ZYRefreshComponent
 
-NSString *const ZYRefreshKeyPathContentOffset = @"contentOffset";
-NSString *const ZYRefreshKeyPathContentSize = @"contentSize";
+NSString * const ZYRefreshKeyPathContentOffset = @"contentOffset";
+NSString * const ZYRefreshKeyPathContentSize = @"contentSize";
 
 - (void)willMoveToSuperview:(UIView *)newSuperview {
     
@@ -30,7 +30,6 @@ NSString *const ZYRefreshKeyPathContentSize = @"contentSize";
     _scrollView = (UIScrollView *)newSuperview;
     _scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, self.spanInset);
 
-    
     _scrollViewOriginalInset = _scrollView.contentInset;
     
     //设置对新父控件的监听
@@ -40,11 +39,12 @@ NSString *const ZYRefreshKeyPathContentSize = @"contentSize";
 }
 
 - (CGFloat)spanInset {
-    return 32;
+    return 0;
 }
 
 - (void)removeObserves {
-    [self.scrollView removeObserver:self forKeyPath:ZYRefreshKeyPathContentOffset];
+    [self.superview removeObserver:self forKeyPath:ZYRefreshKeyPathContentOffset];
+    [self.superview removeObserver:self forKeyPath:ZYRefreshKeyPathContentSize];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
@@ -66,7 +66,6 @@ NSString *const ZYRefreshKeyPathContentSize = @"contentSize";
 - (void)scrollViewContentOffsetDidChange:(NSDictionary *)change {}
 
 - (void)scrollViewContentSizeDidChange:(NSDictionary *)change {}
-
 
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -46,8 +46,6 @@
 
     CGFloat critical_point = [self critical_point];
     
-//    NSLog(@"临界点 : %lf offset: %lf contentSize: %lf", critical_point, self.scrollView.contentOffset.x, self.scrollView.contentSize.width);
-    
     if (self.scrollView.isDragging) {
         if (self.state == ZYRefreshStateIdle && self.scrollView.contentOffset.x > critical_point) {
             self.state = ZYRefreshStatePulling;
